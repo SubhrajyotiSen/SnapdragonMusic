@@ -148,16 +148,16 @@
     <string name="equalizer_button_text">"音效"</string>
     <string name="exit_button_text">"退出"</string>
     <string-array name="title_array_folder">
-        <item>歌手/創作人</item>
-        <item>專輯</item>
         <item>歌曲</item>
+        <item>專輯</item>
+        <item>歌手/創作人</item>
         <item>文件夾</item>
         <item>播放清單</item>
     </string-array>
     <string-array name="title_array_songs">
-        <item>歌手/創作人</item>
-        <item>專輯</item>
         <item>歌曲</item>
+        <item>專輯</item>
+        <item>歌手/創作人</item>
         <item>播放清單</item>
     </string-array>
     <string name="no_music_found">沒有歌曲</string>

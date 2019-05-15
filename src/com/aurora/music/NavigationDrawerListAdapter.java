@@ -52,12 +52,11 @@ public class NavigationDrawerListAdapter extends BaseAdapter {
     public NavigationDrawerListAdapter(Context context) {
         mContext = context;
         mListItemNames.add(context.getResources().getString(
-                R.string.artists_title));
+                R.string.tracks_title));
         mListItemNames.add(context.getResources().getString(
                 R.string.albums_title));
         mListItemNames.add(context.getResources().getString(
-                R.string.tracks_title));
-
+                R.string.artists_title));
         if (MusicUtils.isGroupByFolder()) {
             mListItemNames.add(context.getResources().getString(
                     R.string.folders_title));
@@ -65,9 +64,9 @@ public class NavigationDrawerListAdapter extends BaseAdapter {
         mListItemNames.add(context.getResources().getString(
                 R.string.playlists_title));
 
-        mListItemIcons.add(R.drawable.artists);
-        mListItemIcons.add(R.drawable.albums);
         mListItemIcons.add(R.drawable.songs);
+        mListItemIcons.add(R.drawable.albums);
+        mListItemIcons.add(R.drawable.artists);
 
         if (MusicUtils.isGroupByFolder()) {
             mListItemIcons.add(R.drawable.ic_folder);

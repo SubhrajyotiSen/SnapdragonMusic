@@ -58,12 +58,12 @@ public class FragmentsFactory {
     private static Fragment createFrag(int position) {
         FragmentEnum frg = FragmentEnum.values()[position];
         switch (frg) {
-            case ARTIST_FRAG:
-                return new ArtistAlbumBrowserFragment();
-            case ALBUM_FRAG:
-                return new AlbumBrowserFragment();
             case TRACK_FRAG:
                 return new TrackBrowserFragment();
+            case ALBUM_FRAG:
+                return new AlbumBrowserFragment();
+            case ARTIST_FRAG:
+                return new ArtistAlbumBrowserFragment();
             case FOLDER_FRAG:
                 if (MusicUtils.isGroupByFolder()) {
                     return new FolderBrowserFragment();
@@ -78,6 +78,6 @@ public class FragmentsFactory {
     }
 
     enum FragmentEnum {
-        ARTIST_FRAG, ALBUM_FRAG, TRACK_FRAG, FOLDER_FRAG, PLAYLIST_FRAG, TRACK_BROWSER
+        TRACK_FRAG, ALBUM_FRAG, ARTIST_FRAG, FOLDER_FRAG, PLAYLIST_FRAG, TRACK_BROWSER
     }
 }
