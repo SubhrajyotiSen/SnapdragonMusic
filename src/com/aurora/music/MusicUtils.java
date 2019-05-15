@@ -81,6 +81,8 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
 import com.aurora.music.custom.MusicPanelLayout.BoardState;
 
 import java.io.File;
@@ -1724,9 +1726,9 @@ public class MusicUtils {
 
     public static void loadSongsListDrawables(Context context, Cursor cursor, int from, int to,
                                               android.os.Handler handler) {
-
-        BitmapDrawable defaultArtwork = (BitmapDrawable) context.getResources()
-                .getDrawable(R.drawable.unknown_artists);
+      
+        // 48 dp is the dimension of the ImageView it will populate. So might as well hardcode
+        int height = (int) (48 * context.getResources().getDisplayMetrics().density);
 
         if (cursor != null && cursor.moveToPosition(from)) {
 
@@ -1742,10 +1744,9 @@ public class MusicUtils {
                 int mTitleIdx = cursor
                         .getColumnIndex(MediaStore.Audio.Media.TITLE);
                 long index = cursor.getLong(artIndex);
-                final Bitmap icon = defaultArtwork.getBitmap();
-                int w = icon.getWidth();
-                int h = icon.getHeight();
-                Bitmap b = MusicUtils.getArtworkQuick(context, index, w, h);
+
+                // use height for both height and width as it's a square
+                Bitmap b = MusicUtils.getArtworkQuick(context, index, height, height);
                 if (b != null) {
                     Drawable d = new FastBitmapDrawable(b);
                     synchronized (sArtCache) {

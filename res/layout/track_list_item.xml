@@ -33,7 +33,7 @@
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:gravity="center_vertical"
-    android:padding="4dp">
+    android:padding="12dp">
 
     <!--
         icon is used for albumart, the grabber in edit playlist mode, and
