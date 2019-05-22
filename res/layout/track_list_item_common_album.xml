@@ -28,70 +28,68 @@
   ~ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
   ~ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <com.aurora.music.custom.SquareImageView
         android:id="@+id/icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/album_card"
         android:scaleType="centerCrop" />
 
-    <RelativeLayout
-        android:id="@+id/album_card"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/list_menu_button"
-            android:orientation="vertical">
-            <!-- The height is set to half the height of the parent, which is 64 dip -->
-            <TextView
-                android:id="@+id/line1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:maxLength="25"
-                android:paddingStart="@dimen/album_card_text_space"
-                android:paddingEnd="@dimen/album_card_text_space"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/album_text"
-                android:textSize="@dimen/album_name" />
+            android:ellipsize="end"
+            android:maxLength="25"
+            android:layout_marginStart="@dimen/album_card_text_space"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="@dimen/album_card_text_space"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/album_text"
+            android:textSize="@dimen/album_name"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/list_menu_button"/>
 
-            <!-- The height is set to half the height of the parent, which is 64 dip -->
-            <TextView
-                android:id="@+id/line2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLength="25"
-                android:paddingStart="@dimen/album_card_text_space"
-                android:paddingEnd="@dimen/album_card_text_space"
-                android:paddingBottom="@dimen/album_card_text_margin"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/album_text"
-                android:textSize="@dimen/album_artist_name"
-                android:visibility="visible" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLength="25"
+            android:layout_marginStart="@dimen/album_card_text_space"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="@dimen/album_card_text_space"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/album_text"
+            android:textSize="@dimen/album_artist_name"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/list_menu_button"/>
 
         <ImageView
             android:id="@+id/list_menu_button"
             style="@style/OverflowBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_menu_moreoverflow_normal_holo_light" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </merge>

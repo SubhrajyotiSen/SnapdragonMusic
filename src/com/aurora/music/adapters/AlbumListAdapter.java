@@ -47,6 +47,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AlphabetIndexer;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.SectionIndexer;
@@ -55,6 +56,7 @@ import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.palette.graphics.Palette;
 
 import com.aurora.music.AlbumBrowserFragment;
@@ -195,7 +197,7 @@ public class AlbumListAdapter extends SimpleCursorAdapter implements
         String art = cursor.getString(mAlbumArtIndex);
 
         if (mFastscroll || unknown || art == null || art.length() == 0) {
-            iv.setBackgroundColor(R.color.colorTransparent);
+            iv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorTransparent));
             iv.setTag(null);
         } else {
             Glide
@@ -240,14 +242,10 @@ public class AlbumListAdapter extends SimpleCursorAdapter implements
             popup.getMenu()
                     .add(0, DELETE_ITEM, 0, R.string.delete_item);
             popup.show();
-            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    // TODO Auto-generated method stub
-                    mFragment.onContextItemSelected(item);
-                    return true;
-                }
+            popup.setOnMenuItemClickListener(item -> {
+                // TODO Auto-generated method stub
+                mFragment.onContextItemSelected(item);
+                return true;
             });
             mFragment.mPopupMenu = popup;
             mFragment.mCurrentAlbumId = vh.albumID;
@@ -303,9 +301,8 @@ public class AlbumListAdapter extends SimpleCursorAdapter implements
     @Override
     public Cursor runQueryOnBackgroundThread(CharSequence constraint) {
         String s = constraint.toString();
-        if (mConstraintIsValid
-                && ((s == null && mConstraint == null) || (s != null && s
-                .equals(mConstraint)))) {
+        if (mConstraintIsValid && s
+                .equals(mConstraint)) {
             return getCursor();
         }
         Cursor c = mFragment.getAlbumCursor(null, s);
@@ -331,7 +328,7 @@ public class AlbumListAdapter extends SimpleCursorAdapter implements
         TextView line2;
         ImageView popup_menu_button;
         ImageView icon;
-        RelativeLayout layout;
+        LinearLayout layout;
         String albumID;
         String albumName;
         String artistNameForAlbum, mCurrentAlbumName;

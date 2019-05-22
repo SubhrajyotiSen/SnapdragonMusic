@@ -46,13 +46,13 @@
     <dimen name="album_text_size">14sp</dimen>
     <dimen name="album_list_space">8dp</dimen>
     <dimen name="album_list_space_horizontal">8dp</dimen>
-    <dimen name="album_name">14sp</dimen>
+    <dimen name="album_name">16sp</dimen>
     <dimen name="album_artist_name">12sp</dimen>
     <dimen name="album_top_margin">12dp</dimen>
     <dimen name="album_left_margin">6dp</dimen>
     <dimen name="album_right_margin">6dp</dimen>
     <dimen name="album_card_text_margin">12dp</dimen>
-    <dimen name="album_card_text_space">8dp</dimen>
+    <dimen name="album_card_text_space">16dp</dimen>
     <dimen name="layout_header_height">64dp</dimen>
     <dimen name="layoutsize">420dp</dimen>
     <dimen name="lyric_line_height">30dp</dimen>

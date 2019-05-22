@@ -28,14 +28,22 @@
   ~ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
   ~ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/album_background"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/album_list_space"
-    android:background="@color/colorBackground"
-    android:elevation="2dp">
+    app:cardCornerRadius="6dp">
 
-    <include layout="@layout/track_list_item_common_album" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorBackground"
+        android:id="@+id/album_background">
+        <include layout="@layout/track_list_item_common_album" />
+    </LinearLayout>
 
-</RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
